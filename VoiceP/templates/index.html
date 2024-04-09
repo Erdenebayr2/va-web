@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    
+</head>
+<body>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+    <div class="header">
+        <dotlottie-player src="https://lottie.host/8819a6c2-1dcf-4c63-8234-df7e017b579b/OeIMSSFPLi.json" background="transparent" speed="1" style="width: 100%; height: 300px;" loop autoplay></dotlottie-player>
+    </div>
+    <div class="body">
+        <div class="tts"><input type="text" class="writer"></div>
+    </div>
+</body>
+</html>
