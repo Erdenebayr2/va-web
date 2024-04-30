@@ -4,39 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-<<<<<<< Updated upstream
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-</head>
-<body>
-    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
-    <div class="header">
-        <dotlottie-player src="https://lottie.host/8819a6c2-1dcf-4c63-8234-df7e017b579b/OeIMSSFPLi.json" background="transparent" speed="1" style="width: 100%; height: 300px;" loop autoplay></dotlottie-player>
-    </div>
-    <div class="body">
-        <div class="tts">
-            <div class="table" style="overflow: auto;">
-                {%if answer%}
-                {% for answers in answer%}
-                <div class="assistant" style="margin-left: 58%;">
-                    {{questions}}
-                </div>
-                <div class="assistant">
-                    {{answer}}
-                </div>
-                {% endfor %}
-                {%endif%}
-            </div>
-            
-            <center>
-                <form method="post">
-                    {% csrf_token %}
-                    <input type="text" class="writer" name="text">
-                    <button type="submit" class="mic2"><i class='fa fa-microphone'></i></button>
-                </form>
-            </center>
-=======
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
@@ -116,7 +83,10 @@
             </div>
         </div>
         <div class="chatboard">
-            {{chat}}
+            {% if chat %}
+            {% for x in chat %}
+            {% endfor %}
+            {% endif %}
         </div>
         <div class="text">
             <form method="post">
@@ -126,7 +96,6 @@
                     <input type="submit" value="Илгээх" class="chatsub">
                 </center>
             </form>
->>>>>>> Stashed changes
         </div>
     </div>
 
