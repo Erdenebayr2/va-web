@@ -20,5 +20,7 @@ from VoiceApp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.index, name='index')
+    path('',views.index, name='index'),
+    path('talking',views.talk, name='talk'),
+    path('write',views.write, name='write'),
 ]

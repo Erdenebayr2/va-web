@@ -21,7 +21,9 @@
             justify-content: center;
             align-items: center;
             height: 100%;
-            width: 100%;
+            width: 80%;
+            padding-right: 1%;
+            padding-left: 1%;
         }
 
         .microphone-container {
@@ -53,6 +55,9 @@
             height: 200px;
             border: 1px solid white;
             margin-top: 5%;
+            font-family:Arial, Helvetica, sans-serif;
+            color:white;
+            padding:2%
         }
         .chat{
             width: 30%;
@@ -73,46 +78,57 @@
             width: 100%;
             margin-top: 1%;
         }
+        .side_menu{
+            width: 20%;
+            height: 550px;
+            background-color: rgb(90, 0, 150);
+            float: left;
+        }
+        .talk{
+            background-color: rgb(71, 0, 118);
+            width: 95%;
+            height: 30px;
+            margin-bottom: 5%;
+            text-align: left;
+            color: white;
+            cursor: pointer;
+            padding: 1%;
+        }
+        .text{
+            display: inline-block;
+            font-size: 20px;
+            letter-spacing: 10px;
+            border-right: 3px solid;
+            width: 83%;
+            color: white;
+            white-space: nowrap;
+            overflow:hidden;
+            animation:
+            typing 2s steps(15),
+            cursor .4s step-end infinite alternate;
+        }
+        
+
+        @keyframes cursor{
+            50% { border-color:transparent}
+        }
+
+        @keyframes typing{
+            from{
+                width: 0;
+            }
+        }
     </style>
 </head>
 <body>
+    {% include 'menu.html' %}
     <div id="container">
         <div class="microphone-container" onclick="toggleAnimation(this)">
             <div class="mic" id="micContainer">
-                <i class="fa fa-microphone" id="micIcon"></i>
+                <img src="static/3d avatar.webp" width="100%">
             </div>
         </div>
-        <div class="chatboard">
-            {% if chat %}
-            {% for x in chat %}
-            {% endfor %}
-            {% endif %}
-        </div>
-        <div class="text">
-            <form method="post">
-                {% csrf_token %}
-                <center>
-                    <input type="text" placeholder="Чат..." class="chat" name="chat">
-                    <input type="submit" value="Илгээх" class="chatsub">
-                </center>
-            </form>
-        </div>
+            <p class="text">Сайн байна уу? би бол Хоолойн туслах.Би таны өдөр тутмын үйл ажиллагаанд тус болон гэдэгтээ итгэлтэй байна.</p>
     </div>
-
-    <script>
-        function toggleAnimation(element) {
-            element.classList.toggle('clicked');
-            var micIcon = document.getElementById("micIcon");
-            var micContainer = document.getElementById("micContainer");
-            if (micIcon.classList.contains("fa-microphone")) {
-                micIcon.classList.remove("fa-microphone");
-                micIcon.classList.add("fa-volume-up");
-            } else {
-                micIcon.classList.remove("fa-volume-up");
-                micIcon.classList.add("fa-microphone");
-                micContainer.style.color = "white"; 
-            }
-        }
-    </script>
 </body>
 </html>
